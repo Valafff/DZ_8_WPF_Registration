@@ -55,19 +55,41 @@ namespace _15._01
             userNotes.Children.Add(new TextBox());
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_save(object sender, RoutedEventArgs e)
         {
-            using (StreamWriter sw = File.CreateText($"{userLogin}.txt"))
+            try
             {
-                foreach(var box in userNotes.Children)
-                {
-                    TextBox textBox = (TextBox)box;
-                    if(textBox.Text != string.Empty)
-                    {
-                        sw.WriteLine(textBox.Text);
-                    }
-                }
-            }
+				using (StreamWriter sw = File.CreateText($"{userLogin}.txt"))
+				{
+					foreach (var box in userNotes.Children)
+					{
+						TextBox textBox = (TextBox)box;
+						if (textBox.Text != string.Empty)
+						{
+							sw.WriteLine(textBox.Text);
+						}
+					}
+				}
+                MessageBox.Show("Заметка сохранена", "Сохранение", MessageBoxButton.OK, MessageBoxImage.Information);
+			}
+            catch (Exception)
+            {
+
+				MessageBox.Show("Заметка не сохранена", "Сохранение", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+          
         }
-    }
+
+		private void MenuItem_Click_del(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void MenuItem_Click_exit(object sender, RoutedEventArgs e)
+		{
+            Close();
+		}
+
+
+	}
 }

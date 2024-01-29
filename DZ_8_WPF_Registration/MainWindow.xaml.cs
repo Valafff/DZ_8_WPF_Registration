@@ -44,6 +44,8 @@ namespace _15._01
             {
                 MessageBox.Show("Регистрация не удалась");
             }
+            registrationLogin.Text = "";
+            registrationPassword.Clear();
         }
 
         private void executeAutorization(object sender, RoutedEventArgs e)

@@ -15,7 +15,9 @@
 
         <Menu Grid.Row="0">
             <MenuItem Header="Добавить" Click="MenuItem_Click"/>
-            <MenuItem Header="Сохранить" Click="MenuItem_Click_1"/>
+            <MenuItem Header="Сохранить" Click="MenuItem_Click_save"/>
+            <MenuItem Header="Удалить" Click="MenuItem_Click_del"/>
+            <MenuItem Header="Выход" Click="MenuItem_Click_exit"/>
         </Menu>
         
         <Label Grid.Row="1" x:Name="userLabel"/>
