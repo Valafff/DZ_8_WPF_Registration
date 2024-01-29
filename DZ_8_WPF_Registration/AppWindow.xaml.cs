@@ -80,13 +80,26 @@ namespace _15._01
           
         }
 
+        //Удаляет только нулевой элемент, надо допилить выделение индекса
 		private void MenuItem_Click_del(object sender, RoutedEventArgs e)
 		{
-
+            userNotes.Children.RemoveAt(0);
+			using (StreamWriter sw = File.CreateText($"{userLogin}.txt"))
+			{
+				foreach (var box in userNotes.Children)
+				{
+					TextBox textBox = (TextBox)box;
+					if (textBox.Text != string.Empty)
+					{
+						sw.WriteLine(textBox.Text);
+					}
+				}
+			}
 		}
 
 		private void MenuItem_Click_exit(object sender, RoutedEventArgs e)
 		{
+            new MainWindow().Show();
             Close();
 		}
 
